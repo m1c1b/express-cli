@@ -149,7 +149,7 @@ export function buildQrMaterial(cliOverrides: Partial<Config> = {}): QrMaterial 
     locale: config.locale,
     manufacturer: "Google",
     platform: "web",
-    platform_package_id: "com.pyligrim.alphach",
+    platform_package_id: "ru.unlimitedtech.express",
   });
 
   return { registrationId, encryptionKey, qrSigningKey, udid, qrPayload, qrBody, config };
@@ -295,7 +295,7 @@ export async function completeQrRegistration(
   const adConfirmBody = JSON.stringify({
     rts_registration_id: registrationId,
     temp_token: ctsRegistrationToken,
-    ets: true,
+    ets: false,
   });
 
   const adConfirmHeaders = signQrRequest({
@@ -350,7 +350,7 @@ export async function completeQrRegistration(
     manufacturer: "Google",
     platform: "web",
     locale: config.locale,
-    platform_package_id: "com.pyligrim.alphach",
+    platform_package_id: "ru.unlimitedtech.express",
     device_meta: {
       pushes: false,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,

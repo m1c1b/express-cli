@@ -42,15 +42,11 @@ export function getBaseUrl(config: Config): string {
   return `${config.protocol}://${config.host}`;
 }
 
-function getDomain(ctsHost: string): string {
-  const parts = ctsHost.split('.');
-  return parts.length > 2 ? parts.slice(1).join('.') : ctsHost;
+// Public eXpress deployment: RTS for region "ru" and the official web client origin.
+export function getEtsBaseUrl(_config: Config): string {
+  return "https://ru.public.express";
 }
 
-export function getEtsBaseUrl(config: Config): string {
-  return `https://ets.${getDomain(config.host)}`;
-}
-
-export function getWebOrigin(config: Config): string {
-  return `https://${getDomain(config.host)}`;
+export function getWebOrigin(_config: Config): string {
+  return "https://corp.express";
 }

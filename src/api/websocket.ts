@@ -41,8 +41,7 @@ export async function fetchChatListViaWebSocket(params: {
       done(() => reject(new Error("WebSocket timeout: no chat_list response")));
     }, timeoutMs);
 
-    const hostParts = host.split('.');
-  const webOrigin = `https://${hostParts.length > 2 ? hostParts.slice(1).join('.') : host}`;
+  const webOrigin = "https://corp.express";
 
   const ws = new WebSocket(wsUrl, {
       headers: {
@@ -131,8 +130,7 @@ export async function createPersonalChatViaWebSocket(params: {
       done(() => reject(new Error("WebSocket timeout: no chat_new response")));
     }, timeoutMs);
 
-    const hostParts = host.split(".");
-    const webOrigin = `https://${hostParts.length > 2 ? hostParts.slice(1).join(".") : host}`;
+    const webOrigin = "https://corp.express";
 
     const ws = new WebSocket(wsUrl, {
       headers: {
